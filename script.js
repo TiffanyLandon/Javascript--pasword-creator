@@ -108,13 +108,13 @@ function generatePassword() {
   else if (randomUpperCase){
     click += space + randomUpperCase;
   };
+  function writePassword(passwordText){
 
   for (var i = 0; i < length; i++){
-    result += click.charAt(Math.floor(Math.random() * click.length));
+    result = click.charAt(Math.floor(Math.random() * click.length));
   }
     
   
   return result();
 }
-
-
+}
