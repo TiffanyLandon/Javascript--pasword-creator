@@ -3,11 +3,11 @@
 var generateBtn = document.querySelector("#generate");
 
 // write a declare for each 
-var randomNumber ="1,2,3,4,5,6,7,8,9";
-var randomUpperCase = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
-var randomLowercase = "a, b, c,d,e,f, g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
-var randomSymbols = "!, #, $,%,@,^,&,*,(,{,},[,},?,<,>,.,,, /,:,;,),=,+,-,-,~,`"; 
-var click ="";
+var randomNumber =['1','2','3','4','5','6','7','8','9'];
+var randomUpperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+var randomLowercase = ['a','b',' c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var randomSymbols = ['!',' #',' $','%','@','^','&','*','(','{','}','[','}','?','<','>','.',',','/',':',';',')','=','+','-','-','~','`']; 
+var click =[];
 
 // Write password to the #password input
 function writePassword() {
@@ -56,65 +56,60 @@ function generatePassword() {
 
   // If user select all of the choices
   else if (randomNumber && randomLowercase && randomSymbols && randomUpperCase){
-    click = randomNumber + (randomLowercase, randomUpperCase,randomSymbols);
+    click = randomNumber.concat(randomLowercase, randomUpperCase,randomSymbols);
   }
   // if user select 3 of the options
   else if (randomNumber && randomLowercase && randomSymbols){
-    click = randomNumber + (randomLowercase,randomSymbols);
+    click = randomNumber.concat(randomLowercase,randomSymbols);
   }
   else if (randomNumber && randomUpperCase && randomSymbols){
-    click = randomNumber + (randomUpperCase, randomSymbols);
+    click = randomNumber.concat(randomUpperCase, randomSymbols);
   }
   else if (randomLowercase && randomUpperCase && randomSymbols){
-    click = randomLowercase + (randomUpperCase, randomSymbols);
+    click = randomLowercase.concat(randomUpperCase, randomSymbols);
   }
   else if (randomNumber && randomUpperCase && randomLowercase){
-    click = randomNumber + (randomUpperCase, randomLowercase);
+    click = randomNumber.concat(randomUpperCase, randomLowercase);
   }
 
   // if user select 2 options
   else if (randomNumber && randomLowercase){
-    click= randomNumber + randomLowercase;
+    click= randomNumber.concat(randomLowercase);
   }
   else if (randomNumber && randomUpperCase){
-    click = randomNumber + randomUpperCase;
+    click = randomNumber.concat(randomUpperCase);
   }
   else if (randomNumber && randomSymbols){
-  click = randomNumber += randomSymbols;
+  click = randomNumber.concat(randomSymbols);
   }
   else if (randomLowercase && randomUpperCase){
-    click = randomLowercase += randomUpperCase;
+    click = randomLowercase.concat(randomUpperCase);
   }
   else if (randomSymbols && randomLowercase){
-    click = randomSymbols += randomLowercase;
+    click = randomSymbols.concat(randomLowercase);
   }
   else if (randomSymbols && randomUpperCase){
-    click = randomSymbols += randomUpperCase;
+    click = randomSymbols.concat(randomUpperCase);
   }
 
   // if user select only one option
   else if (randomNumber){
-    click += randomNumber;
+    click.concat(randomNumber);
   }
   else if (randomSymbols){
-    click += randomSymbols;
+    click.concat(randomSymbols);
   }
   else if (randomUpperCase){
-    click += randomUpperCase;
+    click.concat(randomUpperCase);
   }
   else if (randomLowercase){
-    click += randomLowercase;
-  }
-  else if (randomUpperCase){
-    click += space + randomUpperCase;
+    click.concat(randomLowercase);
   };
-  function writePassword(passwordText){
+ 
 
   for (var i = 0; i < length; i++){
     result = click.charAt(Math.floor(Math.random() * click.length));
   }
     
-  
-  return result();
-}
+  function characterType()
 }
