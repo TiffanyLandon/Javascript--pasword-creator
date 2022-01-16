@@ -6,8 +6,8 @@ var generateBtn = document.querySelector("#generate");
 var number ='0,1,2,3,4,5,6,7,8,9';
 var upperCase ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var lowerCase ='a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z';
-var symbols  = "!@,#$%&*{}[]/\\+="; 
-var special ="";
+var symbols  = '!@,#$%&*{}[]/\\+='; 
+var special;
 
 // Add event listener to generate button
 generateBtn.addEventListener( "click", writePassword);
@@ -29,7 +29,7 @@ function writePassword(){
 // Start function to generate password
 function generatePassword() {
   //Random selection for all variables
-  var password ="";
+  var password="";
 
   // Asking for user input of the length of password
    var length = parseInt(prompt("How many characters would you like your password? Choose between 8 and 126"));
@@ -57,64 +57,64 @@ function generatePassword() {
 
   // if the user doesn't select none of these options then they will get alert 
   if (!randomNumber && !randomLowercase && !randomSymbols && !randomUpperCase){
-    windows.alert("You must choose a option to generate password.");
+    special= window.alert("You must choose a option to generate password.");
     return generatePassword();
   }
 
   // If user select all of the choices
    if (randomNumber && randomLowercase && randomSymbols && randomUpperCase){
-   special += (number,lowerCase, upperCase,symbols);
+   special = number.concat (lowerCase, upperCase,symbols);
   }
    // if user select 3 of the options
    else if (randomNumber && randomLowercase && randomSymbols){
-    special += (number,lowerCase,symbols);
+    special = number.concat (lowerCase,symbols);
    }
    else if (randomNumber && randomUpperCase && randomSymbols){
-    special += (number,upperCase, symbols);
+    special = number.concat (upperCase, symbols);
    }
    else if (randomLowercase && randomUpperCase && randomSymbols){
-    special += (lowerCase,upperCase, symbols);
+    special = lowerCase.concat (upperCase, symbols);
    }
    else if (randomNumber && randomUpperCase && randomLowercase){
-    special += (number,upperCase,lowerCase);
+    special = number.concat (upperCase,lowerCase);
    }
  
    // if user select 2 options
    else if (randomNumber && randomLowercase){
-    special += (number,lowerCase);
+    special = number.concat (lowerCase);
    }
    else if (randomNumber && randomUpperCase){
-    special += (number,upperCase);
+    special = number.concat (upperCase);
    }
    else if (randomNumber && randomSymbols){
-  special += (number ,symbols);
+  special = number.concat (symbols);
    }
    else if (randomLowercase && randomUpperCase){
-    special += (lowerCase,upperCase);
+    special = lowerCase.concat (upperCase);
    }
    else if (randomSymbols && randomLowercase){
-    special += (symbols,lowerCase);
+    special = symbols.concat(lowerCase);
    }
    else if (randomSymbols && randomUpperCase){
-    special += (symbols, upperCase);
+    special = symbols.concat(upperCase);
    }
 
   // if user select only one option
    else if (randomNumber){
-    special += number;
+    special = number;
   }
    else if (randomSymbols){
-    special += symbols;
+    special = symbols;
   }
    else if(randomUpperCase){
-    special += upperCase;
+    special = upperCase;
   }
    else if (randomLowercase){
-    special += lowerCase;
+    special = lowerCase;
   }
  
   for (var i = 0; i < length; i++){
-    password += special.charAt(Math.floor(Math.random() * special.length));
+   password += special[Math.floor(Math.random() * special.length)];
   }
     
   return password;
